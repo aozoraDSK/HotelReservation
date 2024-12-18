@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Отели</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div th:each="hotel : ${hotelList}">
+  <a th:text="${hotel.getName()}" th:href="@{/hotel/{id}(id=${hotel.getId()})}"></a>
+</div>
+<br>
+<a href="/logout">Выйти из сессии</a>
+<br>
+<br>
+<a href="/auth/admin">администрирование</a>
+
+</body>
+</html>

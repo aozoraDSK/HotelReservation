@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Бронь</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<p th:text="${'дата въезда: ' + book.getCheckIn()}"></p>
+<p th:text="${'дата выезда: ' + book.getCheckOut()}"></p>
+<p th:text="${'Логин клиента: ' + book.getClientLogin()}"></p>
+<a th:href="@{/rooms/{id}(id=${book.getRoomId()})}">комната</a>
+<br>
+<br>
+<a href="/hotel/all">Все отели</a>
+<br>
+<a th:href="@{/books/{id}/edit(id=${book.getId()})}">Редактировать бронь</a>
+<br>
+<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+  <input type="submit" value="удалить бронь">
+</form>
+</body>
+</html>

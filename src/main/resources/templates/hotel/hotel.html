@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${hotel.getName()}">Отель</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<p th:text="${'Название отеля: ' + hotel.getName()}"></p>
+<p th:text="${'Адрес: ' + hotel.getAddress()}"></p>
+<p th:text="${'Рейтин: ' + hotel.getRating()}"></p>
+<p th:text="${'Описание: ' +  hotel.getDescription()}"></p>
+<br>
+<hr>
+<a th:href="@{/rooms/{idHotel}/allRooms(idHotel=${hotel.getId()})}">Комнаты отеля</a>
+<br>
+<br>
+<a th:href="@{/rooms/{idHotel}/search-rooms(idHotel=${hotel.getId()})}">Поиск комнат по датам</a>
+<br>
+<br>
+<a th:href="@{/review/{idHotel}/allHotelReviews(idHotel=${hotel.getId()})}">Посмотреть отзывы</a>
+<br>
+<br>
+<a th:href="@{/books/{idHotel}/allBooksInHotel(idHotel=${hotel.getId()})}">Все брони отеля</a>
+<br>
+<br>
+<a th:href="@{/rooms/{idHotel}/new(idHotel=${hotel.getId()})}">Добавить комнату отелю</a>
+<br>
+<br>
+<form th:action="@{/review/{id}/new(id=${hotel.getId()})}">
+    <input type="submit" value="Написать отзыв">
+</form>
+<br>
+<br>
+<form th:action="@{/hotel/{id}/edit(id=${hotel.getId()})}">
+    <input type="submit" value="редактировать отель">
+</form>
+<br>
+<br>
+<br>
+<a href="/hotel/all">Все отели</a>
+<br>
+<br>
+<hr>
+<br>
+<br>
+</body>
+</html>

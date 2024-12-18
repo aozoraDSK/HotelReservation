@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Комната</title>
+</head>
+<body>
+
+<p th:text="${'Номер комнаты: ' + room.getRoomNumber()}"></p>
+<p th:text="${'размер комнаты: ' + room.getRoomSize()}"></p>
+<p th:text="${'id комнаты: ' + room.getId()}"></p><br>
+<a th:href="@{/books/{idRoom}/allRoomBooks(idRoom=${room.getId()})}">Все брони комнаты</a>
+<br>
+<a th:href="@{/books/{idRoom}/new(idRoom=${room.getId()})}">Создать бронь</a>
+<br>
+<a href="/hotel/all">Все отели</a>
+<br>
+<br>
+<a th:href="@{/rooms/{idRoom}/edit(idRoom=${room.getId()})}">редактировать комнату</a>
+<br>
+<br>
+<form th:method="DELETE" th:action="@{/rooms/{id}(id=${room.getId()})}">
+  <input type="submit" value="удалить">
+</form>
+
+</body>
+</html>
